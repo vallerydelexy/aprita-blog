@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import ReactMarkdown from 'react-markdown'
+import Link from "next/link"
+import ReactMarkdown from "react-markdown"
 import styles from "../styles/BlogList.module.css"
 import Image from "next/image";
 
@@ -30,7 +30,7 @@ const BlogList = ({ allBlogs }) => {
                             <div className={styles.blog__info}>
                                 <h2>{post.frontmatter.title}</h2>
                                 <h3>{reformatDate(post.frontmatter.date)}</h3>
-                                <ReactMarkdown disallowedElements={['a']}>{truncateSummary(post.markdownBody)}</ReactMarkdown>
+                                <ReactMarkdown disallowedElements={["a"]}>{truncateSummary(post.markdownBody)}</ReactMarkdown>
                             </div>
                         </Link>
                     </li>

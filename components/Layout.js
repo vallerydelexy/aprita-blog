@@ -1,6 +1,6 @@
 import Header from "./Header";
-import Meta from './Meta'
-import styles from '../styles/Layout.module.css'
+import Meta from "./Meta"
+import styles from "../styles/Layout.module.css"
 
 export default function Layout(props) {
   return (
@@ -8,7 +8,7 @@ export default function Layout(props) {
           className={styles.layout}
           style={{
             backgroundColor: `${props.bgColor && props.bgColor}`,
-            color: props.pathname === "info" ? 'white' : undefined
+            color: props.pathname === "info" ? "white" : undefined
           }}
       >
         <Meta

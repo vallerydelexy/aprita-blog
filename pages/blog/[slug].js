@@ -1,26 +1,16 @@
 import Image from "next/image"
-import matter from 'gray-matter'
-import ReactMarkdown from 'react-markdown'
+import matter from "gray-matter"
+import ReactMarkdown from "react-markdown"
+import glob from "glob"
+import Layout from "../../components/Layout"
 import styles from "../../styles/Blog.module.css"
 
-const glob = require('glob')
-
-import Layout from '../../components/Layout'
+function reformatDate(fullDate) {
+  const date = new Date(fullDate)
+  return date.toDateString().slice(4)
+}
 
 export default function BlogTemplate({ frontmatter, markdownBody, siteTitle }) {
-  function reformatDate(fullDate) {
-    const date = new Date(fullDate)
-    return date.toDateString().slice(4)
-  }
-
-  // /*
-  //  ** Odd fix to get build to run
-  //  ** It seems like on first go the props
-  //  ** are undefined — could be a Next bug?
-  //  */
-  //
-  // if (!frontmatter) return <></>
-
   return (
     <Layout siteTitle={siteTitle}>
       <article className={styles.blog}>
@@ -45,10 +35,15 @@ export default function BlogTemplate({ frontmatter, markdownBody, siteTitle }) {
   )
 }
 
-export async function getStaticProps({ ...ctx }) {
-  const { slug } = ctx.params
-  const content = await import(`../../posts/${slug}.md`)
+export async function getStaticProps(context) {
+  // extracting the slug from the context
+  const { slug } = context.params
+
   const config = await import(`../../data/config.json`)
+
+  // retrieving the Markdown file associated to the slug
+  // and reading its data
+  const content = await import(`../../posts/${slug}.md`)
   const data = matter(content.default)
 
   return {
@@ -61,20 +56,21 @@ export async function getStaticProps({ ...ctx }) {
 }
 
 export async function getStaticPaths() {
-  //get all .md files in the posts dir
-  const blogs = glob.sync('posts/**/*.md')
+  // getting all .md files from the posts directory
+  const blogs = glob.sync("posts/**/*.md")
 
-  //remove path and extension to leave filename only
+  // converting the file names to their slugs
   const blogSlugs = blogs.map(file =>
     file
-      .split('/')[1]
-      .replace(/ /g, '-')
+      .split("/")[1]
+      .replace(/ /g, "-")
       .slice(0, -3)
       .trim()
   )
 
-  // create paths with `slug` param
+  // creating a path for each of the `slug` parameter
   const paths = blogSlugs.map(slug => `/blog/${slug}`)
+
   return {
     paths,
     fallback: false,

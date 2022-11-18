@@ -1,6 +1,6 @@
-import matter from 'gray-matter'
-import Layout from '../components/Layout'
-import BlogList from '../components/BlogList'
+import matter from "gray-matter"
+import Layout from "../components/Layout"
+import BlogList from "../components/BlogList"
 
 const Index = props => {
   return (
@@ -22,7 +22,7 @@ export async function getStaticProps() {
   // getting the website config
   const siteConfig = await import(`../data/config.json`)
 
-  const webpackContext = require.context('../posts', true, /\.md$/)
+  const webpackContext = require.context("../posts", true, /\.md$/)
   // the list of file names contained
   // inside the "posts" directory
   const keys = webpackContext.keys()
@@ -34,10 +34,10 @@ export async function getStaticProps() {
     // dynamically creating the post slug
     // from file name
     const slug = key
-        .replace(/^.*[\\\/]/, '')
-        .split('.')
+        .replace(/^.*[\\\/]/, "")
+        .split(".")
         .slice(0, -1)
-        .join('.')
+        .join(".")
 
     // getting the .md file value associated
     // with the current file name

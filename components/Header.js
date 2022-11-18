@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from '../styles/Header.module.css'
+import styles from "../styles/Header.module.css"
 
 export default function Header(props) {
     const isInfoPage = typeof window !== "undefined" && window.location.pathname === "/info"
@@ -15,8 +15,8 @@ export default function Header(props) {
                     <h1>{props.siteTitle}</h1>
                 </Link>
                 <div>
-                    <Link href={isInfoPage ? '/' : '/info'}>
-                        <h1>{isInfoPage ? 'close' : 'info'}</h1>
+                    <Link href={isInfoPage ? "/" : "/info"}>
+                        <h1>{isInfoPage ? "close" : "info"}</h1>
                     </Link>
                 </div>
             </nav>
