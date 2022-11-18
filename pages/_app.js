@@ -1,7 +1,7 @@
 import '../styles/globals.css'
 import { Work_Sans } from '@next/font/google'
 
-// importing the Inter font with
+// importing the Work Sans font with
 // the Next.js 13 Font Optimization Feature
 const workSans = Work_Sans({
   weight: ['400', '700'],
