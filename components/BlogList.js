@@ -1,7 +1,7 @@
 import Link from "next/link"
 import ReactMarkdown from "react-markdown"
 import styles from "../styles/BlogList.module.css"
-import Image from "next/image";
+import Image from "next/image"
 
 function truncateSummary(content) {
     return content.slice(0, 200).trimEnd()

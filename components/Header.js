@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "next/link"
 import styles from "../styles/Header.module.css"
 
 export default function Header(props) {
@@ -21,6 +21,6 @@ export default function Header(props) {
                 </div>
             </nav>
         </header>
-    );
+    )
 }
 
