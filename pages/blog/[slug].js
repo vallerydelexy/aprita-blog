@@ -69,7 +69,7 @@ export async function getStaticPaths() {
   )
 
   // creating a path for each of the `slug` parameter
-  const paths = blogSlugs.map(slug => `/blog/${slug}`)
+  const paths = blogSlugs.map(slug => { return { params: { slug: slug} } })
 
   return {
     paths,
