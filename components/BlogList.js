@@ -15,7 +15,8 @@ function reformatDate(fullDate) {
 const BlogList = ({ allBlogs }) => {
     return (
         <ul>
-            {allBlogs.length > 1 &&
+            {
+                allBlogs && allBlogs.length > 1 &&
                 allBlogs.map(post => (
                     <li key={post.slug}>
                         <Link href={{ pathname: `/blog/${post.slug}` }} className={styles.blog__link}>
@@ -34,7 +35,8 @@ const BlogList = ({ allBlogs }) => {
                             </div>
                         </Link>
                     </li>
-                ))}
+                ))
+            }
         </ul>
     )
 }
