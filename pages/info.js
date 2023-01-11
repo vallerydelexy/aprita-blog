@@ -1,10 +1,9 @@
-import Layout from '../components/Layout'
-import matter from 'gray-matter'
-import ReactMarkdown from 'react-markdown'
+import Layout from "../components/Layout"
+import matter from "gray-matter"
+import ReactMarkdown from "react-markdown"
 import styles from "../styles/Info.module.css"
 
 export default function Info({ frontmatter, markdownBody, title }) {
-    console.log(markdownBody)
   return (
     <Layout
       pathname="info"
@@ -12,7 +11,7 @@ export default function Info({ frontmatter, markdownBody, title }) {
       siteTitle={title}
     >
       <section className={styles.info_blurb}>
-        <ReactMarkdown children={markdownBody} />
+        <ReactMarkdown>{markdownBody}</ReactMarkdown>
       </section>
     </Layout>
   )
@@ -21,6 +20,7 @@ export default function Info({ frontmatter, markdownBody, title }) {
 export async function getStaticProps() {
   const content = await import(`../data/info.md`)
   const config = await import(`../data/config.json`)
+
   const data = matter(content.default)
 
   return {

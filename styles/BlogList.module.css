@@ -1,16 +1,16 @@
 .blog__link {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 .blog__link:hover {
   opacity: 1;
 }
-.blog__link:hover li div.hero_image img {
+li .blog__link:hover div.hero_image img {
   opacity: 0.8;
   transition: opacity 0.3s ease;
 }
-.blog__link:hover li .blog__info h2,
-.blog__link:hover li .blog__info h3,
-.blog__link:hover li .blog__info p {
+li .blog__link:hover .blog__info h2,
+li .blog__link:hover .blog__info h3,
+li .blog__link:hover .blog__info p {
   transform: translateX(10px);
   transition: transform 0.5s ease-out;
 }
@@ -22,10 +22,10 @@
 }
 .hero_image img {
   object-fit: cover;
-  object-position: 50% 50%;
   opacity: 1;
-  transition: opacity 0.3s ease;
   min-height: 100%;
+  width: 100%;
+  transition: opacity 0.3s ease;
 }
 .blog__info {
   display: flex;
@@ -42,7 +42,7 @@
   transform: translateX(0px);
   transition: transform 0.5s ease-out;
 }
-.blog__link li {
+li .blog__link {
   opacity: inherit;
   display: flex;
   justify-content: center;
@@ -60,7 +60,7 @@
   max-width: 900px;
 }
 @media (min-width: 768px) {
-    .blog__link li {
+  li .blog__link {
     min-height: 250px;
     height: 33.333vh;
     flex-direction: row;
