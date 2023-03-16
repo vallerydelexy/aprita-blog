@@ -1,6 +1,6 @@
 import matter from "gray-matter"
-import Layout from "../components/Layout"
-import BlogList from "../components/BlogList"
+import Layout from "../../components/Layout"
+import BlogList from "../../components/BlogList"
 
 const Index = props => {
   return (
@@ -20,9 +20,9 @@ export default Index
 
 export async function getStaticProps() {
   // getting the website config
-  const siteConfig = await import(`../data/config.json`)
+  const siteConfig = await import(`../../data/config.json`)
 
-  const webpackContext = require.context("../posts", true, /\.md$/)
+  const webpackContext = require.context("../../posts", true, /\.md$/)
   // the list of file names contained
   // inside the "posts" directory
   const keys = webpackContext.keys()
