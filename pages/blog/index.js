@@ -5,7 +5,7 @@ import BlogList from "../../components/BlogList"
 const Index = props => {
   return (
       <Layout
-          pathname="/"
+          pathname="/blog"
           siteTitle={props.title}
           siteDescription={props.description}
       >

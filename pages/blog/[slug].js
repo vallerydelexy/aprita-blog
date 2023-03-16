@@ -18,7 +18,7 @@ export default function BlogTemplate({data, variables, siteTitle }) {
   const { post } = data || {}
   const {date, author, title, hero_image, body} = post || {}
   return (
-    <Layout siteTitle={siteTitle}>
+    <Layout siteTitle={`${siteTitle}: ${title}`}>
       <article className={styles.blog}>
         <figure className={styles.blog__hero}>
           <Image

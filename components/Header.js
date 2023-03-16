@@ -11,11 +11,11 @@ export default function Header(props) {
                 role="navigation"
                 aria-label="main navigation"
             >
-                <Link href="/">
+                <Link href="/blog">
                     <h1>{props.siteTitle}</h1>
                 </Link>
                 <div>
-                    <Link href={isInfoPage ? "/" : "/info"}>
+                    <Link href={isInfoPage ? "/" : "/blog/info"}>
                         <h1>{isInfoPage ? "close" : "info"}</h1>
                     </Link>
                 </div>
